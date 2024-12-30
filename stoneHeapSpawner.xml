@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable type="heapSpawner" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../shared/xml/schema/placeable.xsd">
+    <storeData>
+        <name>Stone Heap Spawner</name>
+        <functions>
+            <function>$l10n_function_heapSpawnerStone</function>
+        </functions>
+        <image>store_stoneSpawner.png</image>
+        <price>59000</price>
+        <showInStore>true</showInStore>
+        <canBeSold>true</canBeSold>
+        <lifetime>1000</lifetime>
+        <rotation>0</rotation>
+        <brand>NONE</brand>
+        <species>PLACEABLE</species>
+        <category>productionPoints</category>
+        <brush>
+            <type>placeable</type>
+            <category>production</category>
+            <tab>factories</tab>
+        </brush>
+    </storeData>
+
+    <base>
+        <filename>i3d/stoneHeapSpawner.i3d</filename>
+        <canBeRenamed>true</canBeRenamed>
+        <canBeDeleted>true</canBeDeleted>
+    </base>
+
+    <placement useRandomYRotation="false" useManualYRotation="true" placementRotationSnapAngle="5" >
+        <testAreas>
+            <testArea startNode="testAreaStart01" endNode="testAreaEnd01" />
+        </testAreas>
+        <sounds>
+            <place template="smallImp"/>
+        </sounds>
+    </placement>
+
+    <clearAreas />
+
+    <leveling requireLeveling="false" maxSmoothDistance="10" maxSlope="75" maxEdgeAngle="30" >
+        <levelAreas />
+        <paintAreas />
+    </leveling>
+
+    <indoorAreas />
+
+    <tipOcclusionUpdateAreas>
+        <tipOcclusionUpdateArea startNode="tipOcclusionUpdateAreaStart01" endNode="tipOcclusionUpdateAreaEnd01" />
+    </tipOcclusionUpdateAreas>
+
+    <ai>
+        <updateAreas>
+            <updateArea startNode="tipOcclusionUpdateAreaStart01" endNode="tipOcclusionUpdateAreaEnd01" />
+        </updateAreas>
+    </ai>
+
+    <infoTrigger triggerNode="infoTrigger"/>
+
+    <lights />
+
+    <hotspots>
+        <hotspot type="PRODUCTION_POINT" linkNode="teleportNode" teleportNode="teleportNode" />
+    </hotspots>
+
+    <heapSpawner>
+        <spawnArea fillType="STONE" litersPerHour="5000" >
+            <area startNode="spawnAreaStart01" widthNode="spawnAreaWidth01" heightNode="spawnAreaHeight01" />
+            <effectNodes>
+                <effectNode effectNode="effectSmoke"    materialType="unloadingSmoke" fadeTime="0.5" useFruitColor="true" />
+                <effectNode effectNode="effectParticle" effectClass="ParticleEffect"  particleType="STONE" emitCountScale="1.5"/>
+            </effectNodes>
+            <animationNodes>
+                <animationNode class="ScrollingAnimation" node="effectBelt" rotSpeed="-20" rotAxis="1" shaderComponentScale="-1 0 0 0" scrollSpeed="0.5" shaderParameterName="offsetUV"/>
+            </animationNodes>
+        </spawnArea>
+    </heapSpawner>
+
+    <solarPanels>
+        <solarPanelsConfigurations title="Height From Ground">
+            <solarPanelsConfiguration name="5m" isActive="true" price="0" incomePerHour="0">
+                <objectChange node="spawnVisual" translationActive="0 0 0" />
+            </solarPanelsConfiguration>
+            <solarPanelsConfiguration name="6m" isActive="false" price="0" incomePerHour="0">
+                <objectChange node="spawnVisual" translationActive="0 1 0" />
+            </solarPanelsConfiguration>
+            <solarPanelsConfiguration name="7m" isActive="false" price="0" incomePerHour="0">
+                <objectChange node="spawnVisual" translationActive="0 2 0" />
+            </solarPanelsConfiguration>
+            <solarPanelsConfiguration name="8m" isActive="false" price="0" incomePerHour="0">
+                <objectChange node="spawnVisual" translationActive="0 3 0" />
+            </solarPanelsConfiguration>
+            <solarPanelsConfiguration name="9m" isActive="false" price="0" incomePerHour="0">
+                <objectChange node="spawnVisual" translationActive="0 4 0" />
+            </solarPanelsConfiguration>
+            <solarPanelsConfiguration name="10m" isActive="false" price="0" incomePerHour="0">
+                <objectChange node="spawnVisual" translationActive="0 5 0" />
+            </solarPanelsConfiguration>
+        </solarPanelsConfigurations>
+    </solarPanels>
+
+    <i3dMappings>
+        <i3dMapping id="testAreaStart01" node="0>4|0" />
+        <i3dMapping id="testAreaEnd01" node="0>4|0|0" />
+        <i3dMapping id="tipOcclusionUpdateAreaStart01" node="0>5|0" />
+        <i3dMapping id="tipOcclusionUpdateAreaEnd01" node="0>5|0|0" />
+        <i3dMapping id="infoTrigger" node="0>6|0" />
+        <i3dMapping id="teleportNode" node="0>6|1" />
+        <i3dMapping id="spawnVisual" node="0>8|0" />
+        <i3dMapping id="effectBelt" node="0>8|0|0" />
+        <i3dMapping id="effectSmoke" node="0>8|0|1" />
+        <i3dMapping id="effectParticle" node="0>8|0|2" />
+        <i3dMapping id="spawnAreaStart01" node="0>8|1|0" />
+        <i3dMapping id="spawnAreaWidth01" node="0>8|1|0|0" />
+        <i3dMapping id="spawnAreaHeight01" node="0>8|1|0|1" />
+    </i3dMappings>
+</placeable>

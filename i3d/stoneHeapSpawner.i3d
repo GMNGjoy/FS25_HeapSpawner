@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="stoneHeapSpawner.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="10.0.3"/>
+  </Asset>
+
+  <Files>
+    <File fileId="6" filename="$data/maps/mapUS/textures/buildings/grainElevator/grainElevatorPropsTile_diffuse.dds"/>
+    <File fileId="7" filename="$data/maps/mapUS/textures/buildings/grainElevator/grainElevatorPropsTile_normal.dds"/>
+    <File fileId="8" filename="$data/maps/mapUS/textures/buildings/grainElevator/grainElevatorPropsTile_specular.dds"/>
+    <File fileId="2" filename="$data/maps/textures/shared/conveyorBeltRocks_diffuse.png"/>
+    <File fileId="3" filename="$data/maps/textures/shared/conveyorBeltRocks_normal.png"/>
+    <File fileId="4" filename="$data/shaders/uvScrollShader.xml"/>
+    <File fileId="5" filename="$data/shared/default_normal.png"/>
+    <File fileId="9" filename="$data/shared/warningStripes_diffuse.dds"/>
+    <File fileId="10" filename="$data/shared/warningStripes_normal.dds"/>
+    <File fileId="11" filename="$data/shared/warningStripes_specular.dds"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="conveyorBeltRocks_02_mat" materialId="5" customShaderId="4">
+      <Texture fileId="2"/>
+      <Normalmap fileId="3"/>
+    </Material>
+    <Material name="effect_mat" materialId="6" diffuseColor="0.501961 0.501961 0.501961 1">
+      <Normalmap fileId="5"/>
+    </Material>
+    <Material name="lambert1" materialId="7">
+      <Texture fileId="6"/>
+      <Normalmap fileId="7"/>
+      <Glossmap fileId="8"/>
+    </Material>
+    <Material name="lambert1" materialId="8" diffuseColor="0.501961 0.501961 0.501961 1">
+    </Material>
+    <Material name="warningStripes_mat" materialId="9">
+      <Texture fileId="9"/>
+      <Normalmap fileId="10"/>
+      <Glossmap fileId="11"/>
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="stoneHeapSpawner.i3d.shapes">
+  </Shapes>
+
+  <Scene>
+    <TransformGroup name="stoneHeapSpawner" lockedgroup="true" clipDistance="300" nodeId="20">
+      <TransformGroup name="clearAreas" nodeId="21"/>
+      <TransformGroup name="levelAreas" nodeId="28"/>
+      <TransformGroup name="paintAreas" nodeId="35"/>
+      <TransformGroup name="indoorAreas" nodeId="42"/>
+      <TransformGroup name="testAreas" nodeId="52">
+        <TransformGroup name="testAreaStart01" translation="2.5 0 2.5" nodeId="53">
+          <TransformGroup name="testAreaEnd01" translation="-5 7.5 -5" nodeId="54"/>
+        </TransformGroup>
+      </TransformGroup>
+      <TransformGroup name="tipOcclusionUpdateAreas" nodeId="57">
+        <TransformGroup name="tipOcclusionUpdateAreaStart01" translation="2.5 0 2.5" nodeId="58">
+          <TransformGroup name="tipOcclusionUpdateAreaEnd01" translation="-5 0 -5" nodeId="59"/>
+        </TransformGroup>
+      </TransformGroup>
+      <TransformGroup name="triggers" nodeId="60">
+        <Shape name="infoTrigger" shapeId="1" static="true" trigger="true" collisionFilterGroup="0x20000000" collisionFilterMask="0x100000" nodeId="61" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="8"/>
+        <TransformGroup name="teleportNode" translation="0 0 3.00528" nodeId="62"/>
+      </TransformGroup>
+      <TransformGroup name="lights" nodeId="63"/>
+      <TransformGroup name="heapSpawner" nodeId="70">
+        <TransformGroup name="visual" nodeId="71">
+          <Shape name="beltEffect" rotation="-0.413068 -0 0" shapeId="2" nodeId="72" castsShadows="true" receiveShadows="true" materialIds="5"/>
+          <Shape name="effectSmoke" shapeId="3" visibility="false" clipDistance="100" nodeId="73" castsShadows="true" receiveShadows="true" materialIds="6"/>
+          <Shape name="effectParticle" shapeId="4" clipDistance="300" nodeId="74" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="8"/>
+          <Shape name="stoneQuarryOutput" scale="0.01 0.01 0.01" shapeId="5" nodeId="75" castsShadows="true" receiveShadows="true" materialIds="7"/>
+        </TransformGroup>
+        <TransformGroup name="spawnArea" translation="0 0 7.4" nodeId="76">
+          <TransformGroup name="spawnAreaStart01" translation="-3 0 -3" nodeId="77">
+            <TransformGroup name="spawnAreaWidth01" translation="6 0 0" nodeId="78"/>
+            <TransformGroup name="spawnAreaHeight01" translation="0 0 6" nodeId="79"/>
+          </TransformGroup>
+          <TransformGroup name="warningStripeGroup" nodeId="80">
+            <Shape name="warningStripeCorner" translation="3 0 -3" shapeId="6" nodeId="81" castsShadows="false" receiveShadows="false" nonRenderable="true" terrainDecal="true" materialIds="9"/>
+            <Shape name="warningStripeCorner" translation="-3 1.02811e-06 -3" shapeId="7" nodeId="82" castsShadows="false" receiveShadows="false" nonRenderable="true" terrainDecal="true" materialIds="9"/>
+            <Shape name="warningStripeCorner" translation="3 0 3" shapeId="8" nodeId="83" castsShadows="false" receiveShadows="false" nonRenderable="true" terrainDecal="true" materialIds="9"/>
+            <Shape name="warningStripeCorner" translation="-3 -5.1415e-07 3" shapeId="9" nodeId="84" castsShadows="false" receiveShadows="false" nonRenderable="true" terrainDecal="true" materialIds="9"/>
+          </TransformGroup>
+        </TransformGroup>
+      </TransformGroup>
+      <TransformGroup name="collisions" nodeId="85"/>
+    </TransformGroup>
+  </Scene>
+
+</i3D>

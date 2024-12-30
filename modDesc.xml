@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<modDesc descVersion="94">
+    <author>GamingJoy</author>
+    <version>1.0.0.0</version>
+    <title>
+        <en>Heap Spawner</en>
+    </title>
+    <description>
+        <en><![CDATA[A stone spawner for funzies.]]></en>
+    </description>
+    <iconFilename>icon_heapSpawner.dds</iconFilename>
+    <multiplayer supported="true"/>
+    <storeItems>
+        <storeItem xmlFilename="stoneHeapSpawner.xml"/>
+    </storeItems>
+</modDesc>
