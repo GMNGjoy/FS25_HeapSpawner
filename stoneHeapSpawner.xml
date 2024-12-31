@@ -6,7 +6,7 @@
             <function>$l10n_function_heapSpawnerStone</function>
         </functions>
         <image>store_stoneSpawner.png</image>
-        <price>59000</price>
+        <price>29000</price>
         <showInStore>true</showInStore>
         <canBeSold>true</canBeSold>
         <lifetime>1000</lifetime>
